@@ -45,5 +45,5 @@ Make sure you have the following installed on your machine:
 5. Run the project:
 
    ```bash
-   python main.py
+   python src/main.py
    ```
