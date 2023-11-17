@@ -6,7 +6,7 @@ This is a python app with GUI and OOP. It can notify the user some useful inform
 
 Make sure you have the following installed on your machine:
 
-- [Python](https://www.python.org/) (version x.x.x)
+- [Python](https://www.python.org/)
 - [Git](https://git-scm.com/)
 
 ## Installation
@@ -14,8 +14,7 @@ Make sure you have the following installed on your machine:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/liao-mo/python-final-project.git
    ```
 
 2. Navigate to the project directory
