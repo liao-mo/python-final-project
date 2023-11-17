@@ -3,21 +3,35 @@ from firstPage import FirstPage
 from secondPage import SecondPage
 from thirdPage import ThirdPage
 
+class ButtonFrame(tk.Frame):
+    def __init__(self, master, show_first_page, show_second_page, show_third_page):
+        super().__init__(master)
+
+
+        # Create buttons
+        self.first_page_button = tk.Button(self, text="First Page", command=show_first_page)
+        self.second_page_button = tk.Button(self, text="Second Page", command=show_second_page)
+        self.third_page_button = tk.Button(self, text="Third Page", command=show_third_page)
+
+        # Pack buttons at the top with a 5px padding
+        self.first_page_button.pack(side=tk.LEFT, padx=5)
+        self.second_page_button.pack(side=tk.LEFT, padx=5)
+        self.third_page_button.pack(side=tk.LEFT, padx=5)
 
 class MainPage(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-        self.first_page_button = tk.Button(
-            self, text="Go to First Page", command=self.show_first_page)
-        self.first_page_button.pack(pady=10)
 
-        self.second_page_button = tk.Button(
-            self, text="Go to Second Page", command=self.show_second_page)
-        self.second_page_button.pack(pady=10)
+        # Create a ButtonFrame instance
+        self.button_frame = ButtonFrame(
+            self,
+            self.show_first_page,
+            self.show_second_page,
+            self.show_third_page
+        )
 
-        self.third_page_button = tk.Button(
-            self, text="Go to Third Page", command=self.show_third_page)
-        self.third_page_button.pack(pady=10)
+        # Pack the ButtonFrame at the top
+        self.button_frame.pack(side=tk.TOP, pady=5)
 
         # Initialize the pages
         self.first_page = FirstPage(self)
