@@ -1,7 +1,9 @@
 import requests
+from datetime import datetime
 import json
 
 python_group_api_key = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
+polygon_api_key = "yr1DIx81auoOwfkiY8p7hJ_sNUuDE2e3"
 
 
 def send_image(image_path):
@@ -54,7 +56,27 @@ def get_weather(location):
     try:
         url = f"http://api.weatherstack.com/current?access_key=887f99e739d3cf04471da33a2f752636&query=Taipei&units=m"
         response = requests.request("GET", url)
-        response_json = json.loads(response.text)
-        return (response_json)
+        data = json.loads(response.text)
+        return (data)
     except Exception as e:
         print(f"Error: {e}")
+
+
+def get_crypto_price(symbol):
+    # Get the current date
+    today_date = datetime.now().strftime("%Y-%m-%d")
+    (from_symbol, to_symbol) = symbol.split('-')
+    try:
+        url = f"https://api.polygon.io/v1/open-close/crypto/{from_symbol}/{to_symbol}/{today_date}?adjusted=true&apiKey={polygon_api_key}"
+        response = requests.request("GET", url)
+        data = json.loads(response.text)
+        return data["close"]
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def get_FX_price():
+    pass
+
+
+print(get_crypto_price('ETH-USD'))

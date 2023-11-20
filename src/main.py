@@ -5,6 +5,9 @@ import requests
 
 # 1v1 api-key: L5ndN5HrN07x8RQkJ03znyCOzGfLIQ3FSFkZdT3SoWo
 # group api-key: aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume
+# IG api-key: 44ac979fa1a93690779469a62b5378c051993017
+# IG username: hanknine-demo
+# IG password: aA12345678
 
 
 class MainApp(tk.Tk):
@@ -13,12 +16,12 @@ class MainApp(tk.Tk):
         self.title("Multi-Page Tkinter App")
         self.geometry("800x600")
 
-        #build code
-        self.show_first_page()
-
-        #dev code
+        # build code
         # self.show_first_page()
-        # self.show_second_page()
+
+        # dev code
+        self.show_first_page()
+        self.show_second_page()
 
     def show_first_page(self):
         self.first_page = LandingPage(self)
