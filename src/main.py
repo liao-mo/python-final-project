@@ -31,25 +31,24 @@ class MainApp(tk.Tk):
     def check_api_key(self):
         # Retrieve API key from the first page
         api_key = self.first_page.entry.get()
+
         print("Entered API Key:", api_key)
 
         # Perform API key availability check (replace with your actual API check logic)
         try:
             api_endpoint = f"https://notify-api.line.me/api/notify?message=Activating with python app..."
-            headers = {
-                'Authorization': f'Bearer {api_key}'
-            }
+            headers = {"Authorization": f"Bearer {api_key}"}
             # Make a POST request
-            response = requests.post(
-                api_endpoint, headers=headers)
+            response = requests.post(api_endpoint, headers=headers)
 
-        # Check the response
+            # Check the response
             if response.status_code == 200:
                 print("API Key is valid. Proceeding to the second page.")
                 self.show_second_page()
             else:
                 print(
-                    "API Key is not valid. Display an error message or take appropriate action.")
+                    "API Key is not valid. Display an error message or take appropriate action."
+                )
         except Exception as e:
             print(f"Error: {e}")
 
