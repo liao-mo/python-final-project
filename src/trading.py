@@ -115,3 +115,5 @@ login(IG_API_KEY)
 #     print(key, get_market_info(value)["bid"])
 
 # findAllEpics("264134")
+
+dic = {"a": 1, "b": {"c": 3}}
