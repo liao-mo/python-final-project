@@ -17,11 +17,11 @@ class MainApp(tk.Tk):
         self.geometry("800x600")
 
         # build code
-        # self.show_first_page()
+        self.show_first_page()
 
         # dev code
-        self.show_first_page()
-        self.show_second_page()
+        # self.show_first_page()
+        # self.show_second_page()
 
     def show_first_page(self):
         self.first_page = LandingPage(self)
