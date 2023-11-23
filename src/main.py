@@ -43,8 +43,8 @@ class MainApp(tk.Tk):
 
             # Check the response
             if response.status_code == 200:
-                print("API Key is valid. Proceeding to the second page.")
-                self.show_second_page()
+                print("API Key is valid. Proceeding to the weather page.")
+                self.show_weather_page()
             else:
                 print(
                     "API Key is not valid. Display an error message or take appropriate action."
@@ -52,13 +52,13 @@ class MainApp(tk.Tk):
         except Exception as e:
             print(f"Error: {e}")
 
-    def show_second_page(self):
+    def show_weather_page(self):
         # Remove the first page
         self.first_page.pack_forget()
 
         # Create and show the second page
-        self.second_page = MainPage(self)
-        self.second_page.pack(fill=tk.BOTH, expand=True)
+        self.weather_page = MainPage(self)
+        self.weather_page.pack(fill=tk.BOTH, expand=True)
 
 
 if __name__ == "__main__":
