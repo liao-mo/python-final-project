@@ -30,7 +30,8 @@ class MainApp(tk.Tk):
 
     def check_api_key(self):
         # Retrieve API key from the first page
-        api_key = self.first_page.entry.get()
+        #api_key = self.first_page.entry.get()
+        api_key = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
 
         print("Entered API Key:", api_key)
 
