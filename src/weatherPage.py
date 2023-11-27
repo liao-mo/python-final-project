@@ -1,4 +1,5 @@
 import tkinter as tk
+from weather import *
 
 
 class WeatherPage(tk.Frame):
@@ -20,19 +21,19 @@ class WeatherPage(tk.Frame):
         self.place_label.grid(column=0, row=0, columnspan=4, sticky="ew", padx=200)
 
         # TMP label
-        self.tmp_label = tk.Label(frame, text="21°")
+        self.tmp_label = tk.Label(frame, text="{}°".format(get_temperature()))
         self.tmp_label.config(font=("Helvetica", 45), fg="#61798A", bg="#DEF1FA")
         #self.tmp_label.pack(pady=10)
         self.tmp_label.grid(column=0,row=1, columnspan=4, sticky="ew", padx=200, pady=3)
 
         # Low label
-        self.low_tmp_label = tk.Label(frame, text="最低:16°")
+        self.low_tmp_label = tk.Label(frame, text="最低:{}°".format(get_temperature_min()))
         self.low_tmp_label.config(font=("Helvetica", 15), fg="#61798A", bg="#DEF1FA")
         #self.low_tmp_label.pack(pady=10)
         self.low_tmp_label.grid(column=0,row=2, columnspan=2, sticky="e", padx=5, pady=3)
 
         # High label
-        self.high_tmp_label = tk.Label(frame, text="最高:27°")
+        self.high_tmp_label = tk.Label(frame, text="最高:{}°".format(get_temperature_max()))
         self.high_tmp_label.config(font=("Helvetica", 15), fg="#61798A", bg="#DEF1FA")
         #self.high_tmp_label.pack(pady=10)
         self.high_tmp_label.grid(column=2,row=2, columnspan=2, sticky="w", padx=5, pady=3)
@@ -43,7 +44,7 @@ class WeatherPage(tk.Frame):
         self.uv_labelframe = tk.LabelFrame(frame, text="UV", fg="#61798A", bg="#B2DEFD", width=150, height=150)
         self.uv_labelframe.propagate(False)
         # UV value label
-        label1 = tk.Label(self.uv_labelframe, text="4", fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
+        label1 = tk.Label(self.uv_labelframe, text="{}".format(get_uv_value()), fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
         label1.pack()
         # UV image label
         uv_image = tk.PhotoImage(file="./images/ultraviolet-2.png")
@@ -60,7 +61,7 @@ class WeatherPage(tk.Frame):
         self.feel_labelframe = tk.LabelFrame(frame, text="体感温度", fg="#61798A", bg="#B2DEFD", width=150, height=150)
         self.feel_labelframe.propagate(False)
         # 体感温度 value label
-        label2 = tk.Label(self.feel_labelframe, text="21°", fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
+        label2 = tk.Label(self.feel_labelframe, text="{}°".format(get_feels_like()), fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
         label2.pack()
         # 体感温度 image label
         feel_image = tk.PhotoImage(file="./images/temperature.png")
@@ -77,7 +78,7 @@ class WeatherPage(tk.Frame):
         self.humid_labelframe = tk.LabelFrame(frame, text="湿度", fg="#61798A", bg="#B2DEFD", width=150, height=150)
         self.humid_labelframe.propagate(False)
         # Humidity value label
-        label3 = tk.Label(self.humid_labelframe, text="78%", fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
+        label3 = tk.Label(self.humid_labelframe, text="{}%".format(get_humidity()), fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
         label3.pack()
         # Humidity image label
         humid_image = tk.PhotoImage(file="./images/humidity.png")
@@ -94,7 +95,7 @@ class WeatherPage(tk.Frame):
         self.wind_labelframe = tk.LabelFrame(frame, text="Wind", fg="#61798A", bg="#B2DEFD", width=150, height=150)
         self.wind_labelframe.propagate(False)
         # Wind value label
-        label4 = tk.Label(self.wind_labelframe, text="2m/s", fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
+        label4 = tk.Label(self.wind_labelframe, text="{}m/s".format(get_wind_speed()), fg="#61798A", bg="#B2DEFD", font=("Helvetica", 30))
         label4.pack()
         # Wind image label
         wind_image = tk.PhotoImage(file="./images/wind.png")
@@ -131,5 +132,5 @@ class WeatherPage(tk.Frame):
 
         # ボタンを作成
         set_button = tk.Button(self, text="Set", command=on_button_click, fg="#61798A")
-        set_button.config(bg="#B2DEFD")
+        #set_button.config(background="#B2DEFD")
         set_button.pack(pady=3)
