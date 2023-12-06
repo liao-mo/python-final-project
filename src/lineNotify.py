@@ -2,11 +2,12 @@ import requests
 
 
 HANK_API_KEY = "L5ndN5HrN07x8RQkJ03znyCOzGfLIQ3FSFkZdT3SoWo"
+BRIAN_API_KEY = "8jxKWOdikn1dwNR8jejCyYk0iHYEhTQz2ZyujEgvXWK"  # added
 GROUP_API_KEY = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
 
 
 class LineNotify:
-    def __init__(self, api_key=HANK_API_KEY) -> None:
+    def __init__(self, api_key=BRIAN_API_KEY) -> None:
         self.base_url = "https://notify-api.line.me/api/notify"
         self.header = {"Authorization": f"Bearer {api_key}"}
 

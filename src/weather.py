@@ -12,14 +12,14 @@ mgr = owm.weather_manager()
 mgr_uv = owm.uvindex_manager()
 
 # This only runs on python 3.7 - 3.9
-reg = owm.city_id_registry()
-list_of_locations = reg.locations_for("Taipei", country="TW", matching="exact")
-taipei = list_of_locations[0]
-lat = taipei.lat
-lon = taipei.lon
+# reg = owm.city_id_registry()
+# list_of_locations = reg.locations_for("Taipei", country="TW", matching="exact")
+# taipei = list_of_locations[0]
+# lat = taipei.lat
+# lon = taipei.lon
 
-# lat = 24.94702
-# lon = 121.581749
+lat = 24.94702
+lon = 121.581749
 
 my_city_id = 1665148  # Taipei
 w = mgr.weather_at_id(my_city_id).weather

@@ -31,8 +31,8 @@ class MainApp(tk.Tk):
     def check_api_key(self):
         # Retrieve API key from the first page
         #api_key = self.first_page.entry.get()
-        api_key = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
-
+        # api_key = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
+        api_key = "8jxKWOdikn1dwNR8jejCyYk0iHYEhTQz2ZyujEgvXWK"  # send to brian instead of group
         print("Entered API Key:", api_key)
 
         # Perform API key availability check (replace with your actual API check logic)
@@ -46,6 +46,7 @@ class MainApp(tk.Tk):
             if response.status_code == 200:
                 print("API Key is valid. Proceeding to the weather page.")
                 self.show_weather_page()
+                # self.show_nba_page()  #added
             else:
                 print(
                     "API Key is not valid. Display an error message or take appropriate action."
@@ -56,10 +57,20 @@ class MainApp(tk.Tk):
     def show_weather_page(self):
         # Remove the first page
         self.first_page.pack_forget()
+        # self.nba_page.pack_forget()  # added
 
         # Create and show the second page
         self.weather_page = MainPage(self)
         self.weather_page.pack(fill=tk.BOTH, expand=True)
+        
+    def show_nba_page(self):
+        # Remove the previous page
+        self.first_page.pack_forget()
+        self.weather_page.pack_forget()
+
+        # Create and show the second page
+        self.nba_page = MainPage(self)
+        self.nba_page.pack(fill=tk.BOTH, expand=True)
 
 
 if __name__ == "__main__":
