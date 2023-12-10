@@ -122,8 +122,31 @@ class WeatherPage(tk.Frame):
         
         # Setting time
         def on_button_click():
-            entered_text = entry.get()
-            print("入力されたテキスト: " + entered_text)
+            # Show data
+            entered_time = entry.get()
+            entered_uv = uv_var.get()
+            entered_feel = feel_var.get()
+            entered_humid = humid_var.get()
+            entered_wind = wind_var.get()
+            print("Set time: " + entered_time)
+            print("UV: " + str(entered_uv))
+            print("Feel: " + str(entered_feel))
+            print("Humidity: " + str(entered_humid))
+            print("Wind: " + str(entered_wind))
+
+            #weather_notify()
+            show_weather = "weather test\n"
+            if entered_uv:
+                show_weather += f"UV: {get_uv_value()}\n"
+            if entered_feel:
+                show_weather += f"Feels like: {get_feels_like()}\n"
+            if entered_humid:
+                show_weather += f"Humidity: {get_humidity()}\n"
+            if entered_wind:
+                show_weather += f"Wind: {get_wind_speed()}\n"
+            user = LineNotify("aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume")
+            user.send_message(show_weather)
+            print(show_weather)
 
         # Entryウィジェットを作成
         entry = tk.Entry(self, width=10, fg="#61798A")

@@ -1,6 +1,7 @@
 from pyowm.owm import OWM
 from pyowm.utils import formatting
 from pyowm.utils.config import get_default_config
+from lineNotify import *
 
 #  PyOWMのコンフィグ設定
 config_dict = get_default_config()
