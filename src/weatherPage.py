@@ -1,5 +1,7 @@
 import tkinter as tk
 from weather import *
+from datetime import datetime, time
+import time as t
 
 
 class WeatherPage(tk.Frame):
@@ -119,6 +121,21 @@ class WeatherPage(tk.Frame):
         feel_check.grid(column=1,row=4, padx=25)
         humid_check.grid(column=2,row=4, padx=25)
         wind_check.grid(column=3,row=4, padx=25)
+
+        def weather_notify(uv, feel, humid, wind):
+            #weather_notify()
+            show_weather = "weather notification\n"
+            if uv:
+                show_weather += f"UV: {get_uv_value()}\n"
+            if feel:
+                show_weather += f"Feels like: {get_feels_like()}\n"
+            if humid:
+                show_weather += f"Humidity: {get_humidity()}\n"
+            if wind:
+                show_weather += f"Wind: {get_wind_speed()}\n"
+            user = LineNotify("aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume")
+            user.send_message(show_weather)
+            print(show_weather)
         
         # Setting time
         def on_button_click():
@@ -134,6 +151,27 @@ class WeatherPage(tk.Frame):
             print("Humidity: " + str(entered_humid))
             print("Wind: " + str(entered_wind))
 
+            # 取得當前時間
+            current_time = datetime.now().time()
+            #print("Current time: " + str(current_time))
+            # 設定中午12:00的時間
+            #target_time = time(12, 0, 0)
+            hour_min = entered_time.split(":")
+            target_time = time(int(hour_min[0]), int(hour_min[1]), 0)
+            #print("Target time: " + str(target_time))
+            # 計算距離中午12:00還有多長時間
+            time_difference = datetime.combine(datetime.today(), target_time) - datetime.combine(datetime.today(), current_time)
+            #print("Time difference: " + str(time_difference))
+            # 將時間轉換為毫秒
+            #delay_in_milliseconds = time_difference.total_seconds() * 1000
+            #print("Delay in milliseconds: " + str(delay_in_milliseconds))
+            # 使用after方法設定定時呼叫
+            #self.after(int(delay_in_milliseconds), weather_notify(entered_uv, entered_feel, entered_humid, entered_wind))
+            print("Waiting Time: " + str(time_difference.total_seconds()))
+            t.sleep(time_difference.total_seconds())
+            weather_notify(entered_uv, entered_feel, entered_humid, entered_wind)
+
+            """
             #weather_notify()
             show_weather = "weather test\n"
             if entered_uv:
@@ -147,6 +185,7 @@ class WeatherPage(tk.Frame):
             user = LineNotify("aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume")
             user.send_message(show_weather)
             print(show_weather)
+            """
 
         # Entryウィジェットを作成
         entry = tk.Entry(self, width=10, fg="#61798A")
