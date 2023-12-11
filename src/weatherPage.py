@@ -128,12 +128,13 @@ class WeatherPage(tk.Frame):
             if uv:
                 show_weather += f"UV: {get_uv_value()}\n"
             if feel:
-                show_weather += f"Feels like: {get_feels_like()}\n"
+                show_weather += f"Feels like: {get_feels_like()} °C\n"
             if humid:
-                show_weather += f"Humidity: {get_humidity()}\n"
+                show_weather += f"Humidity: {get_humidity()} %\n"
             if wind:
-                show_weather += f"Wind: {get_wind_speed()}\n"
-            user = LineNotify("aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume")
+                show_weather += f"Wind: {get_wind_speed()} m/s\n"
+            #user = LineNotify("aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume")
+            user = LineNotify()
             user.send_message(show_weather)
             print(show_weather)
         
