@@ -10,7 +10,8 @@ class TradingPage(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
 
-        self.lineUser = LineNotify()
+        self.lineUser = LineNotify(
+            "L5ndN5HrN07x8RQkJ03znyCOzGfLIQ3FSFkZdT3SoWo")
 
         self.tasks = []
 
@@ -175,7 +176,7 @@ class TradingPage(tk.Frame):
         # Call the task function with parameters
         if task["type"] == "periodic":
             # Unpack parameters using **kwargs
-            self.periodicTask(**task["params"])
+            self.periodicTask(task["params"]["symbol"])
         elif task["type"] == "comparison":
             symbol = task["params"]["symbol"]
             self.comparisonTask(**task["params"], uid=task["_id"])
