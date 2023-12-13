@@ -7,7 +7,7 @@ GROUP_API_KEY = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
 
 
 class LineNotify:
-    def __init__(self, api_key=BRIAN_API_KEY) -> None:
+    def __init__(self, api_key) -> None:
         self.base_url = "https://notify-api.line.me/api/notify"
         self.header = {"Authorization": f"Bearer {api_key}"}
 

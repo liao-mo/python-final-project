@@ -15,9 +15,7 @@ class ButtonFrame(tk.Frame):
         self.weather_page_button = tk.Button(
             self, text="Weather", command=show_weather_page
         )
-        self.nba_page_button = tk.Button(
-            self, text="NBA", command=show_nba_page
-        )
+        self.nba_page_button = tk.Button(self, text="NBA", command=show_nba_page)
 
         # Pack buttons at the top with a 5px padding
         self.tradingPage_button.pack(side=tk.LEFT, padx=5)
@@ -26,7 +24,7 @@ class ButtonFrame(tk.Frame):
 
 
 class MainPage(tk.Frame):
-    def __init__(self, master):
+    def __init__(self, master, line_api_key):
         super().__init__(master)
 
         # Create a ButtonFrame instance
@@ -38,9 +36,9 @@ class MainPage(tk.Frame):
         self.button_frame.pack(side=tk.TOP, pady=5)
 
         # Initialize the pages
-        self.tradingPage = TradingPage(self)
-        self.weather_page = WeatherPage(self)
-        self.nba_page = NBAPage(self)
+        self.tradingPage = TradingPage(self, line_api_key)
+        self.weather_page = WeatherPage(self, line_api_key)
+        self.nba_page = NBAPage(self, line_api_key)
 
         # Show the tradingPage by default
         self.show_tradingPage()

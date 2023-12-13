@@ -9,7 +9,10 @@ class LandingPage(tk.Frame):
         self.entry_label.config(font=("Helvetica", 24))
         self.entry_label.pack(pady=10)
 
-        self.entry = tk.Entry(self, width="100")
+        self.temp_api = tk.StringVar(
+            value="L5ndN5HrN07x8RQkJ03znyCOzGfLIQ3FSFkZdT3SoWo"
+        )
+        self.entry = tk.Entry(self, width="100", textvariable=self.temp_api)
         self.entry.pack(padx=10, pady=10)
 
         self.continue_button = tk.Button(self, text="Continue")
