@@ -6,6 +6,15 @@ from nbaPage import NBAPage
 
 class ButtonFrame(tk.Frame):
     def __init__(self, master, show_tradingPage, show_weather_page, show_nba_page):
+        """
+        Initialize the ButtonFrame.
+
+        Args:
+            master: The master Tkinter window.
+            show_tradingPage: Callback function to show the TradingPage.
+            show_weather_page: Callback function to show the WeatherPage.
+            show_nba_page: Callback function to show the NBAPage.
+        """
         super().__init__(master)
 
         # Create buttons
@@ -15,7 +24,8 @@ class ButtonFrame(tk.Frame):
         self.weather_page_button = tk.Button(
             self, text="Weather", command=show_weather_page
         )
-        self.nba_page_button = tk.Button(self, text="NBA", command=show_nba_page)
+        self.nba_page_button = tk.Button(
+            self, text="NBA", command=show_nba_page)
 
         # Pack buttons at the top with a 5px padding
         self.tradingPage_button.pack(side=tk.LEFT, padx=5)
@@ -25,6 +35,13 @@ class ButtonFrame(tk.Frame):
 
 class MainPage(tk.Frame):
     def __init__(self, master, line_api_key):
+        """
+        Initialize the MainPage.
+
+        Args:
+            master: The master Tkinter window.
+            line_api_key: API key for Line Notify.
+        """
         super().__init__(master)
 
         # Create a ButtonFrame instance

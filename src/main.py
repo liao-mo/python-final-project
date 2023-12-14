@@ -2,41 +2,42 @@ import tkinter as tk
 from landingPage import LandingPage
 from mainPage import MainPage
 import requests
-from lineNotify import *
 
 # 1v1 api-key: L5ndN5HrN07x8RQkJ03znyCOzGfLIQ3FSFkZdT3SoWo
 # group api-key: aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume
-# IG api-key: 44ac979fa1a93690779469a62b5378c051993017
-# IG username: hanknine-demo
-# IG password: aA12345678
 
 
 class MainApp(tk.Tk):
     def __init__(self):
+        """
+        Constructor for the MainApp class.
+
+        Initializes the Tkinter application with the LandingPage as the initial page.
+        """
         super().__init__()
         self.title("Multi-Page Tkinter App")
         self.geometry("800x600")
-
-        # build code
         self.show_first_page()
 
-        # dev code
-        # self.show_first_page()
-        # self.show_second_page()
-
-    def get_lineUser(self):
-        return self.lineUser
-
     def show_first_page(self):
+        """
+        Show the LandingPage.
+
+        Packs and displays the LandingPage, configuring the continue button to check the API key.
+        """
         self.first_page = LandingPage(self)
         self.first_page.pack(fill=tk.BOTH, expand=True)
         self.first_page.continue_button.config(command=self.check_api_key)
 
     def check_api_key(self):
+        """
+        Check the validity of the entered API key.
+
+        Retrieves the API key from the LandingPage entry, performs an availability check, and proceeds to
+        the weather page if the key is valid.
+        """
         # Retrieve API key from the first page
         self.api_key = self.first_page.entry.get()
-        # api_key = "aXeGGuxXR4KFNZlMXg0yfvIwD2ledWRD3mQI0L2Sume"
-        # api_key = "8jxKWOdikn1dwNR8jejCyYk0iHYEhTQz2ZyujEgvXWK"  # send to brian instead of group
         print("Entered API Key:", self.api_key)
 
         # Perform API key availability check (replace with your actual API check logic)
@@ -56,15 +57,20 @@ class MainApp(tk.Tk):
             print(f"Error: {e}")
 
     def show_main_page(self):
+        """
+        Show the MainPage.
+
+        Forgets the first page and creates/shows the MainPage.
+        """
         # Remove the first page
         self.first_page.pack_forget()
-        # self.nba_page.pack_forget()  # added
 
-        # Create and show the second page
+        # Create and show the main page
         self.main_page = MainPage(self, self.api_key)
         self.main_page.pack(fill=tk.BOTH, expand=True)
 
 
 if __name__ == "__main__":
+    # Run the Tkinter application
     app = MainApp()
     app.mainloop()
