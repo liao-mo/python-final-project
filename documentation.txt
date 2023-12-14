@@ -1,0 +1,48 @@
+Description:
+
+This is a Python application that provides users with real-time information about market prices, weather information and NBA information to set up customizable notifications. 
+The application utilizes the Tkinter library for a graphical user interface and leverages Line Notify for sending notifications to users.
+
+Key Features:
+
+Multi-Page Interface:
+The app features a user-friendly multi-page interface, allowing seamless navigation between different functionalities.
+
+Market Price Information:
+Retrieve and display real-time market prices for various trading symbols, including cryptocurrencies and traditional currencies.
+
+Line Notify Integration:    
+Utilizes Line Notify to send notifications to users, keeping them informed about market changes and specific conditions set by the user.
+
+Trading notification Tasks:
+Users can create two types of notification tasks:
+1. Periodic Notifications: Set up notifications to be sent at regular intervals for a specific trading symbol.
+2. Comparison Notifications: Define conditions such as price increase, decrease, greater than, or less than for customized notifications.
+
+Customizable Settings:
+Users can customize the frequency of periodic notifications and set conditions for comparison notifications based on their preferences.
+
+Task Management:
+View and manage scheduled notification tasks, including the ability to delete tasks once they are no longer needed.
+
+API Key Check:
+Start by entering your Line Notify API key on the Landing Page. The app will verify the key's validity before proceeding.
+
+Market Price Display:
+Once authenticated, view real-time market prices on the Trading Page for different trading symbols.
+
+Notification Setup:
+Set up periodic notifications or create comparison notifications based on specific market conditions.
+
+Task Management:
+Manage and delete scheduled tasks on the Trading Page.
+
+Receive Notifications:
+Receive Line Notify messages with information about market prices and customized notifications.
+
+Note: 
+The API keys in the codes are for our personal accounts.
+If you want to run this program correctly, please use your own API keys.
+
+Run Instructions:
+Run the main.py script to launch the Tkinter application. Remember to install the dependencies by reading the README.md file.

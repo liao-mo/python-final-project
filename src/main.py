@@ -1,3 +1,36 @@
+"""
+    Project name: The final helper
+    
+    Authors: 
+        B10815026 廖墨哲
+        B11015017 Rin Kawano
+        B11032018 黃舶恩
+        
+    Description:
+        Initialization:
+        The program starts by initializing the Tkinter application and prompting the user to enter their Line Notify API key for authentication.
+        
+        Main Page Functionality:
+        The primary functionality is centered around the Trading Page, providing users with a graphical interface to view real-time market prices for different symbols.
+        
+        Notification Tasks:
+        Users can create two types of notification tasks:
+            Periodic Notifications: Specify intervals for notifications to be sent regularly for a specific trading symbol.
+            Comparison Notifications: Define conditions such as price increase, decrease, greater than, or less than for customized alerts.
+        
+        Task Management:
+        Users can manage scheduled tasks on the Trading Page, including the ability to delete tasks that are no longer needed.
+        
+        Continuous Monitoring:
+        The program continuously monitors market conditions, executing scheduled tasks at specified intervals based on user-defined parameters.
+        
+        Line Notify Integration:
+        Utilizes Line Notify to send customized notifications to users when specific market conditions or user-defined intervals are met.
+        
+        Algorithmic Logic:
+        The logical algorithm ensures a seamless user experience by combining real-time data retrieval, user customization, and automated notifications for timely and informed decision-making.
+"""
+
 import tkinter as tk
 from landingPage import LandingPage
 from mainPage import MainPage
