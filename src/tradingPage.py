@@ -1,6 +1,5 @@
 import tkinter as tk
 from trading import *
-from utility import *
 from lineNotify import *
 import ast
 import uuid
@@ -33,8 +32,7 @@ class TradingPage(tk.Frame):
         self.selected_symbol = tk.StringVar()
         self.selected_symbol.set("BTCUSD")
 
-        self.menu_symbols = tk.OptionMenu(
-            self, self.selected_symbol, *self.symbols)
+        self.menu_symbols = tk.OptionMenu(self, self.selected_symbol, *self.symbols)
         self.menu_symbols.grid(column=1, row=0, sticky=tk.W, pady=10, padx=5)
 
         # 2nd row
@@ -42,8 +40,7 @@ class TradingPage(tk.Frame):
             self, text="Send current price", command=self.sendSeletedPrice
         )
         self.btn_sendSeleted.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.btn_sendSeleted.grid(
-            column=0, row=1, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.btn_sendSeleted.grid(column=0, row=1, sticky=tk.W + tk.E, pady=10, padx=5)
 
         self.btn_sendAll = tk.Button(
             self, text="Send all prices", command=self.sendAllPrice
@@ -54,8 +51,7 @@ class TradingPage(tk.Frame):
         # 3rd row
         self.label_period = tk.Label(self, text="Send notification Every")
         self.label_period.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.label_period.grid(
-            column=0, row=3, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.label_period.grid(column=0, row=3, sticky=tk.W + tk.E, pady=10, padx=5)
 
         self.spinbox_period = tk.Spinbox(self, from_=1, to=60, width=10)
         self.spinbox_period.config(font=("Helvetica", 20), bg="#fff5f5")
@@ -68,8 +64,7 @@ class TradingPage(tk.Frame):
         self.menu_time_units = tk.OptionMenu(
             self, self.selected_time_unit, *self.time_units
         )
-        self.menu_time_units.grid(
-            column=2, row=3, sticky=tk.W, pady=10, padx=5)
+        self.menu_time_units.grid(column=2, row=3, sticky=tk.W, pady=10, padx=5)
 
         self.btn_period = tk.Button(
             self,
@@ -81,15 +76,12 @@ class TradingPage(tk.Frame):
             ),
         )
         self.btn_period.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.btn_period.grid(
-            column=3, row=3, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.btn_period.grid(column=3, row=3, sticky=tk.W + tk.E, pady=10, padx=5)
 
         # 4th row
-        self.label_comparison = tk.Label(
-            self, text="Send notification when the price")
+        self.label_comparison = tk.Label(self, text="Send notification when the price")
         self.label_comparison.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.label_comparison.grid(
-            column=0, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.label_comparison.grid(column=0, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
 
         self.comp_operators = ["<", ">", "increase", "decrease"]
         self.selected_comp_operators = tk.StringVar()
@@ -97,15 +89,12 @@ class TradingPage(tk.Frame):
         self.menu_comparison = tk.OptionMenu(
             self, self.selected_comp_operators, *self.comp_operators
         )
-        self.menu_comparison.grid(
-            column=1, row=4, sticky=tk.W + tk.E, pady=10, padx=10)
+        self.menu_comparison.grid(column=1, row=4, sticky=tk.W + tk.E, pady=10, padx=10)
 
         self.comparison_number = tk.DoubleVar()
-        self.entry_comparison = tk.Entry(
-            self, textvariable=self.comparison_number)
+        self.entry_comparison = tk.Entry(self, textvariable=self.comparison_number)
         self.entry_comparison.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.entry_comparison.grid(
-            column=2, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.entry_comparison.grid(column=2, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
 
         self.btn_comparison = tk.Button(
             self,
@@ -121,8 +110,7 @@ class TradingPage(tk.Frame):
             ),
         )
         self.btn_comparison.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.btn_comparison.grid(
-            column=3, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.btn_comparison.grid(column=3, row=4, sticky=tk.W + tk.E, pady=10, padx=5)
 
         # tasks listbox
         self.tasks_string = tk.StringVar()
@@ -137,8 +125,7 @@ class TradingPage(tk.Frame):
             command=lambda: self.deleteTask(self.getCurrentSeletedTaskIndex()),
         )
         self.btn_delete_task.config(font=("Helvetica", 12), bg="#fff5f5")
-        self.btn_delete_task.grid(
-            column=3, row=5, sticky=tk.W + tk.E, pady=10, padx=5)
+        self.btn_delete_task.grid(column=3, row=5, sticky=tk.W + tk.E, pady=10, padx=5)
 
     def sendSeletedPrice(self):
         """
@@ -213,8 +200,7 @@ class TradingPage(tk.Frame):
         """
         # Check if the task with a specific UUID is in the list
         searched_uuid = task["_id"]
-        found_task = next(
-            (t for t in self.tasks if t["_id"] == searched_uuid), None)
+        found_task = next((t for t in self.tasks if t["_id"] == searched_uuid), None)
         if not found_task:
             return
 
@@ -357,8 +343,7 @@ class TradingPage(tk.Frame):
         market_info = get_market_info(epics.get(symbol))
         avgPrice = 0
         try:
-            avgPrice = (float(market_info["bid"]) +
-                        float(market_info["offer"])) / 2.0
+            avgPrice = (float(market_info["bid"]) + float(market_info["offer"])) / 2.0
         except Exception as e:
             return -1
         return avgPrice
