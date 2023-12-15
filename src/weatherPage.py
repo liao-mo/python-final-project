@@ -64,7 +64,7 @@ class WeatherPage(tk.Frame):
         self.label1.pack()
         # UV image label
         self.uv_image = tk.PhotoImage(file="./images/ultraviolet-2.png")
-        l_image = tk.Label(
+        self.l_image = tk.Label(
             self.uv_labelframe, image=self.uv_image, width=80, height=80, bg="#B2DEFD"
         )
         self.l_image.image = self.uv_image
@@ -98,7 +98,7 @@ class WeatherPage(tk.Frame):
         self.label2.pack()
         # 體感溫度 image label
         self.feel_image = tk.PhotoImage(file="./images/temperature.png")
-        l_image1 = tk.Label(
+        self.l_image1 = tk.Label(
             self.feel_labelframe, image=self.feel_image, width=80, height=80, bg="#B2DEFD"
         )
         self.l_image1.image = self.feel_image
