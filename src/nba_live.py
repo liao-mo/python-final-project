@@ -1,11 +1,4 @@
-# import requests
-# # import nba_api
-# from nba_api.stats.endpoints import scoreboard
-
-# re=requests.get("https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json")
-
-# print(scoreboard.Scoreboard().get_json())
-
+import requests
 from nba_api.live.nba.endpoints._base import Endpoint
 from nba_api.live.nba.library.http import NBALiveHTTP
 
@@ -125,25 +118,15 @@ def getTodayScoreboard():
     game_date = scoreboard_instance.score_board_date
     games = scoreboard_instance.games
 
-    # Example: Print the game date and details of the first game
     print("Game Date:", game_date)
-
-    # print(games.data)
-    # if games:
-    #     for data in games.data:
-    #         # ori: first_game = games.data[0]
-    #         first_game = data
-    #         home_team_name = first_game["homeTeam"]["teamCity"] + first_game["homeTeam"]["teamName"]
-    #         away_team_name = first_game["awayTeam"]["teamCity"] + first_game["awayTeam"]["teamName"]
-    #         print("First Game Details:")
-    #         print(f"Home Team: {home_team_name}")
-    #         print(f"Away Team: {away_team_name}")
-    #         print("//////////////////////////////////////////////////////////////////////")
-    
     return games
-        
 
-# # You can also access other properties and methods of the instance as needed
-# # Example: Access the raw NBA API response
-# raw_response = scoreboard_instance.nba_response._response
-# print("\n\nRaw NBA API Response:", raw_response)
+    
+def getSchedule():
+    try:
+        schedule = requests.get("https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json")
+        print("request successfully!")
+        return schedule.json()
+    except Exception as e:
+        print(f"Error: {e}")
+        
