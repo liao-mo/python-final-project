@@ -234,7 +234,6 @@ class NBAPage(tk.Frame):
     # if the number of days from now to the designated games are less then dayslimit, the game info should be send to line
     def sendGamesSchedule(self, schedule, dayslimit):
         current_time_utc = datetime.now(timezone.utc)
-        print(current_time_utc)
 
         # Extracting homeTeam and awayTeam for each game
         for game_date in schedule["leagueSchedule"]["gameDates"]:
@@ -267,8 +266,8 @@ class NBAPage(tk.Frame):
                             current_time_taiwan = game_time_utc.astimezone(
                                 timezone(timedelta(hours=8))
                             ).strftime("%Y-%m-%d %H:%M")
-                            print(f"Home Team: {home_team_name}")
-                            print(f"Away Team: {away_team_name}\n")
+                            # print(f"Home Team: {home_team_name}")
+                            # print(f"Away Team: {away_team_name}\n")
 
                             self.lineUser.send_message(
                                 f"\n{daysbetween} days left!\nHome Team:\n{home_team_name}\nAway Team:\n{away_team_name}\n{current_time_taiwan}"

@@ -11,13 +11,26 @@ The app features a user-friendly multi-page interface, allowing seamless navigat
 Market Price Information:
 Retrieve and display real-time market prices for various trading symbols, including cryptocurrencies and traditional currencies.
 
-Line Notify Integration:    
-Utilizes Line Notify to send notifications to users, keeping them informed about market changes and specific conditions set by the user.
+Weather Information:
+Retrieve the temperature, wind speed, uv index, and humidity in Taipei in current time.
 
-Trading notification Tasks:
+NBA Game Schedule Information:
+Retrive the recent game schedule for all NBA teams and filter them according to user's selection.
+
+Line Notify Integration:    
+Utilizes Line Notify to send notifications to users, keeping them informed about market changes, weather information, NBA recent schedule, and specific conditions set by the user.
+
+Trading Notification Tasks:
 Users can create two types of notification tasks:
 1. Periodic Notifications: Set up notifications to be sent at regular intervals for a specific trading symbol.
 2. Comparison Notifications: Define conditions such as price increase, decrease, greater than, or less than for customized notifications.
+
+Weather Notification Tasks:
+User can choose which informaitions to be sent and the time of sending message to LINE.
+
+NBA Notification Tasks:
+1. Notification on click: Directly send today's schedule and game status.
+2. Periodic Notifications: Periodically send the schedule in the near future.
 
 Customizable Settings:
 Users can customize the frequency of periodic notifications and set conditions for comparison notifications based on their preferences.
@@ -32,13 +45,15 @@ Market Price Display:
 Once authenticated, view real-time market prices on the Trading Page for different trading symbols.
 
 Notification Setup:
-Set up periodic notifications or create comparison notifications based on specific market conditions.
+1. Trading Page: Set up periodic notifications or create comparison notifications based on specific market conditions.
+2. Weather Page: Set up weather properties and time of sending information.
+3. NBA Page: Select NBA teams, choose service and set up options.
 
 Task Management:
-Manage and delete scheduled tasks on the Trading Page.
+Manage and delete scheduled tasks on the Trading Page, Weather Page, and NBA Page.
 
 Receive Notifications:
-Receive Line Notify messages with information about market prices and customized notifications.
+Receive Line Notify messages with information about market prices, weather informations, NBA schedule, and customized notifications.
 
 Note: 
 The API keys in the codes are for our personal accounts.
